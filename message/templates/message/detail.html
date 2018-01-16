@@ -1,0 +1,10 @@
+<head>
+	<title> Chats with {{ user.name }} </title>
+</head>
+
+{{ user.name }}
+{{ user.status }}
+
+{% for a_message in user.chat_set.all %}
+	<li>{{user.source_user}} -- {{user.message}}</li>
+{% endfor %}

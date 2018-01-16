@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   
+    <title>SignUp Page</title>
+    <style>
+        label.required { color: #dd4b39; }
+    </style>
+
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+    {% if msg_ok %}
+    <div class="alert alert-success" role="alert">{{ msg_ok }}</div>
+    {% endif %}
+
+    {% if msg_err %}
+    <div class="alert alert-warning" role="alert">{{ msg_err }}</div>
+    {% endif %}
+
+      <form class="form-signin" method="post">{% csrf_token %}
+        <label for="username" class="sr-only">Username</label></br>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus></br></br>
+        <label for="email" class="sr-only">Email or Username</label></br>
+        <input type="text" id="email" name="email" class="form-control" placeholder="Email" required></br></br>
+        <label for="password" class="sr-only">Password</label></br>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required></br></br>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me" id="news" name="news"> By signing up, you agree to the Terms of Service and Privacy Policy,
+              including Cookie Use. Others will be able to find you by email or phone number when provided.
+          </label>
+        </div>
+
+        <nav aria-label="...">
+          <ul class="pager">
+                 </ul>
+        </nav>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        <input type="hidden" name="next" value="{{ request.GET.next }}" />
+      </form>
+
+    </div> <!-- /container -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+      </body>
+</html>
